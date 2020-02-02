@@ -1,0 +1,50 @@
+<h3>Ajouter un enseignant</h3>
+<div  style="width: 400px;">
+  <form   [formGroup]="createForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Nom</label>
+      <input type="text" class="form-control" id="nom" required [(ngModel)]="enseignant.nom" formControlName="nom" [ngClass]="{ 'is-invalid': submitted && f.nom.errors }">
+      <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+                       <div *ngIf="f.nom.errors.required">Veillez saisir le nom de l'enseignant</div>
+                   </div>
+    </div>
+
+
+
+    <div class="form-group">
+      <label for="name">Prénom </label>
+      <input type="text" class="form-control" id="prenom" required [(ngModel)]="enseignant.prenom" formControlName="prenom" [ngClass]="{ 'is-invalid': submitted && f.prenom.errors }">
+
+<div *ngIf=" submitted && f.prenom.errors" class="invalid-feedback d-block">
+                       <div  *ngIf="f.prenom.errors.required">Veillez saisir le prénom de l'enseignant</div>
+</div>
+
+    </div>
+
+
+
+    <div class="form-group">
+      <label for="name">Email</label>
+      <input type="text" class="form-control" id="email" required [(ngModel)]="enseignant.email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                       <div *ngIf="f.email.errors.required">Veillez saisir l'email de l'enseignant</div>
+                           <div *ngIf="f.email.errors.email">Veillez saisir une adresse email valide</div>
+                   </div>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Contact</label>
+      <input type="text" class="form-control"  id="telephone" required [(ngModel)]="enseignant.contact" formControlName="contact" [ngClass]="{ 'is-invalid': submitted && f.contact.errors }">
+      <div *ngIf="submitted && f.contact.errors" class="invalid-feedback">
+                       <div *ngIf="f.contact.errors.required">Veillez saisir le numéro de téléphone de l'enseignant</div>
+
+
+                   </div>
+    </div>
+
+
+
+
+    <button type="submit" class="btn btn-success">Ajouter</button>
+  </form>
+</div>

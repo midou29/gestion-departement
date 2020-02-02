@@ -1,0 +1,79 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Nouvelle matiére</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+
+  <div class="form-group">
+<label>  Nom  </label> <br>
+<input type="text" required [(ngModel)]="matiere.nom" name="nom">
+  </div>
+    <div class="form-group">
+  <label>  coefficient </label>  <br> <input type="text" required [(ngModel)]="matiere.coefficient" name="coefficient">
+      </div>
+        <div class="form-group">
+    <label>    Nombre d'heures </label> <br>  <input type="text" required [(ngModel)]="matiere.nbrHeures" name="nbrHeures">
+</div>
+
+
+
+
+
+
+
+</form>
+
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="Ajouter()">Confirmer</button>
+  </div>
+</ng-template>
+
+
+
+
+<button class="btn btn-outline-primary mb-2 mr-2" (click)="openLg(content)">Ajouter une nouvelle matiére</button>
+<button type="button" class="btn btn-primary" (click)="suivant()" >Attribution des matiéres au enseignants</button>
+<br> <br> <br>
+
+
+
+
+<div class="panel panel-primary">
+
+  <div class="panel-heading">
+
+
+
+
+    <h2>Liste des matiéres</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Matiere</th>
+          <th>Coefficient</th>
+<th>Nombre d'heures</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let matiere of matieres | async">
+          <td>{{matiere.nom}}</td>
+<td>{{matiere.coefficient}}</td>
+<td>{{matiere.nbrHeures}}</td>
+          <td><button (click)="deleteMatiere(matiere.id)" class="btn btn-danger">Supprimer</button>
+
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

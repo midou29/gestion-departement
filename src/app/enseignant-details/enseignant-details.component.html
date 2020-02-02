@@ -1,0 +1,36 @@
+<h2>Détails de l'enseignant</h2>
+
+<hr/>
+<div *ngIf="enseignant">
+  <div>
+    <label><b>Nom: </b></label> {{enseignant.nom}}
+  </div>
+  <div>
+    <label><b>Prenom: </b></label> {{enseignant.prenom}}
+  </div>
+
+
+  <div>
+    <label><b>Email : </b></label> {{enseignant.email}}
+  </div>
+  <div>
+    <label><b>Contact : </b></label> {{enseignant.contact}}
+  </div>
+
+  <div>
+    <label><b>Matieres enseignées : </b></label>
+    <div *ngFor="let attribution of attributions | async">
+        <div *ngIf="attribution.enseignant.id==enseignant.id">
+      {{attribution.matiere.nom}}
+      </div>
+    </div>
+
+
+
+  </div>
+
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Retour à la liste des enseignants</button><br>

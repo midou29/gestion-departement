@@ -1,0 +1,35 @@
+<header class="header">
+  <h1 class="logo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBR7BNozvEveYqDxGn3kXfL4JjpYIQccECOAaWZwH9zVWaaach" width="150" ></h1>
+
+  <h1> Département Informatique  </h1>
+    <ul class="main-nav">
+
+      <li>
+        <a class="nav-link" *ngIf="currentstatus.status" [routerLink]='["enseignants"]'><i class="fa fa-users"></i>Enseignats</a>
+      </li>
+      <li  class="nav-item">
+        <a class="nav-link" *ngIf="currentstatus.status" [routerLink]='["etudiants"]'><i class="fa fa-users"></i>Etudiants</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="currentstatus.status" [routerLink]='["matieres"]'><i class="fa fa-cloud-upload"></i>Matiéres</a>
+      </li>
+      <li  class="nav-item">
+
+        <a class="nav-link" *ngIf="currentstatus.status" [routerLink]='["sections"]'><i class="fa fa-pencil fa-fw"></i>Sections</a>
+      </li>
+
+      <li  class="nav-item">
+
+        <a class="nav-link" *ngIf="currentstatus.status" [routerLink]='["absences"]'><i class="fa fa-files-o"></i>Absences</a>
+      </li>
+
+
+
+
+      <li>
+          <a class="nav-item nav-link"   (click)="logout()"  *ngIf="currentstatus.status"><i class="fa fa-sign-out"></i>log out</a>
+      </li>
+
+
+    </ul>
+</header>

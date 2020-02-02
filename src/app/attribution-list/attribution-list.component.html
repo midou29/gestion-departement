@@ -1,0 +1,35 @@
+<h3>Attribution de matiéres au enseignant</h3>
+<div  style="width: 400px;">
+  <form   [formGroup]="createForm" (ngSubmit)="onSubmit()">
+    <div class="col-md-4">
+                   <span>l'enseignant </span>
+                   <div>
+                     <select formControlName="selectedenseignant" required [(ngModel)]="attribution.enseignant">
+                       <option   *ngFor="let enseignant of enseignants | async" [ngValue]="enseignant"> {{enseignant.nom}}
+
+                       {{enseignant.prenom}}
+
+                        </option>
+                     </select>
+                   </div>
+                 </div>
+
+                 <div class="col-md-4">
+                                <span>la matiére </span>
+                                <div>
+                                  <select formControlName="selectedmatiere" required [(ngModel)]="attribution.matiere">
+                                    <option   *ngFor="let matiere of matieres | async" [ngValue]="matiere"> {{matiere.nom}}</option>
+                                  </select>
+                                </div>
+                              </div>
+
+
+
+
+
+
+<br> <br>
+
+    <button type="submit" class="btn btn-success">Attribuer</button>
+  </form>
+</div>

@@ -1,0 +1,38 @@
+<button type="button" class="btn btn-primary btn-lg"  (click)="pageAjouter()" >Ajouter un nouveau étudiant</button>
+<br> <br>  <br> <br>
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Liste des étudiants</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>CIN</th>
+          <th>Email</th>
+          <th>Téléphone</th>
+            <th>Section</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let etudiant of etudiants | async">
+          <td>{{etudiant.nom}}</td>
+          <td>{{etudiant.prenom}}</td>
+          <td>{{etudiant.cin}}</td>
+          <td>{{etudiant.email}}</td>
+          <td>{{etudiant.telephone}}</td>
+            <td>{{etudiant.section.nom}}</td>
+          <td><button (click)="deleteEtudiant(etudiant.id)" class="btn btn-danger">Supprimer</button>
+            <button (click)="updateEtudiant(etudiant.id)"  class="btn btn-info" style="margin-left: 10px">Modifier</button>
+              <button (click)="etudiantDetails(etudiant.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

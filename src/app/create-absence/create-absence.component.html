@@ -1,0 +1,52 @@
+<h3>Ajouter une absence</h3>
+<div  style="width: 400px;">
+  <form   [formGroup]="createForm" (ngSubmit)="onSubmit()">
+    <div class="col-md-4">
+                   <span>Selectionner l'étudiant </span>
+                   <div>
+                     <select formControlName="selectedetudiant" required [(ngModel)]="absence.etudiant">
+                       <option   *ngFor="let etudiant of etudiants | async" [ngValue]="etudiant"> {{etudiant.nom}}
+
+                       {{etudiant.prenom}}
+
+                        </option>
+                     </select>
+                   </div>
+                 </div>
+
+                 <div class="col-md-4">
+                                <span>Selectionner la matiére </span>
+                                <div>
+                                  <select formControlName="selectedmatiere" required [(ngModel)]="absence.matiere">
+                                    <option   *ngFor="let matiere of matieres | async" [ngValue]="matiere"> {{matiere.nom}}</option>
+                                  </select>
+                                </div>
+                              </div>
+
+
+
+
+    <div class="form-group">
+      <label for="name">type de séance</label>
+      <input type="text" class="form-control" id="type" required [(ngModel)]="absence.type" formControlName="type" [ngClass]="{ 'is-invalid': submitted && f.type.errors }">
+      <div *ngIf="submitted && f.type.errors" class="invalid-feedback">
+                       <div *ngIf="f.type.errors.required">Veillez saisir le </div>
+                   </div>
+    </div>
+
+
+    <div class="form-group">
+      <label for="name">date</label>
+      <input type="string" class="form-control" id="dateAbsence" required [(ngModel)]="absence.dateAbsence" formControlName="dateAbsenceSelected" [ngClass]="{ 'is-invalid': submitted && f.type.errors }">
+      <div *ngIf="submitted && f.type.errors" class="invalid-feedback">
+                       <div *ngIf="f.type.errors.required">Veillez saisir le </div>
+                   </div>
+    </div>
+
+
+
+
+
+    <button type="submit" class="btn btn-success">Ajouter</button>
+  </form>
+</div>

@@ -1,0 +1,33 @@
+<h3>Modifier l'étudiant</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Nom</label>
+      <input type="text" class="form-control" id="nom" required [(ngModel)]="etudiant.nom" name="nom">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Prénom </label>
+      <input type="text" class="form-control" id="prenom" required [(ngModel)]="etudiant.prenom" name="prenom">
+    </div>
+
+    <div class="form-group">
+      <label for="name">CIN </label>
+      <input type="text" class="form-control" id="cin" required [(ngModel)]="etudiant.cin" name="cin">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Email</label>
+      <input type="text" class="form-control" id="email" required [(ngModel)]="etudiant.email" name="email">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Numéro du téléphone</label>
+      <input type="text" class="form-control" id="telephone" required [(ngModel)]="etudiant.telephone" name="telephone">
+    </div>
+
+
+
+    <button type="submit" class="btn btn-success">Modifier</button>
+  </form>
+</div>

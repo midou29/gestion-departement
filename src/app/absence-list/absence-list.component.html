@@ -1,0 +1,50 @@
+
+<button type="button" class="btn btn-primary btn-lg"  (click)="pageAjouter()" >Ajouter une nouvelle Absence</button>
+
+
+
+<span style="float:right">
+   <div class="form-inline my-2 my-lg-0">
+       <input class="form-control form-control-sm mr-3 w-10" type="text" placeholder="rechercher selon le nom " aria-label="Search"
+                [(ngModel)]="term" />
+       <button class="btn btn-outline-primary" type="submit">Search</button>
+   </div>
+ </span>
+
+
+
+
+
+<br> <br>  <br> <br>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Liste des absences</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Matiére</th>
+
+            <th>date</th>
+          <th>type de séance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let absence of absences | async">
+          <td>{{absence.etudiant.nom}}</td>
+          <td>{{absence.etudiant.prenom}}</td>
+          <td>{{absence.matiere.nom}}</td>
+            <td>{{absence.dateAbsence}}</td>
+            <td>{{absence.type}}</td>
+          <td><button (click)="deleteAbsence(absence.id)" class="btn btn-danger">Supprimer</button>
+            <button   class="btn btn-info" style="margin-left: 10px">Modifier</button>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
